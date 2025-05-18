@@ -1,6 +1,5 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const asyncHandler = require("express-async-handler");
 const User = require("../models/userModel");
 
 const register = async(req , res) => {
@@ -45,7 +44,7 @@ const login = async(req , res) => {
 {
     expiresIn: "1h"
 });
-
+    res.status(200).json({token});
     }
     catch(err){
         res.status(500).json({
